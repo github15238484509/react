@@ -1,6 +1,4 @@
 import React from "react";
-
-
 export default class MyClassComp extends React.Component {
     render() {
         console.log(this);
@@ -8,21 +6,3 @@ export default class MyClassComp extends React.Component {
     }
 
 }
-
-
-// import React, { Component } from 'react'
-// import { connect } from 'react-redux'
-
-// export class MyClassComp extends Component {
-//   render() {
-//     return (
-//       <div>MyClassComp</div>
-//     )
-//   }
-// }
-
-// const mapStateToProps = (state) => ({})
-
-// const mapDispatchToProps = {}
-
-// export default connect(mapStateToProps, mapDispatchToProps)(MyClassComp)
