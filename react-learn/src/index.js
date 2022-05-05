@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { TickStatusComp } from './TickStatusComp';
-
+import TickComp from './Tick';
+import { TickControl } from './TickControl';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    
-   <TickStatusComp time={10}></TickStatusComp>
+    <TickControl time={10}></TickControl>
   </React.StrictMode>
 );
 
