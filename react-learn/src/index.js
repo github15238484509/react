@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import TickComp from './Tick';
-import { TickControl } from './TickControl';
+import { PagerControl } from './PagerControl';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <TickControl time={10}></TickControl>
+    <PagerControl></PagerControl>
   </React.StrictMode>
 );
 
