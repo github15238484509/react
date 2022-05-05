@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { TickStatusComp } from './TickStatusComp';
+import {BallListComp} from './BallListComp';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    
-   <TickStatusComp time={10}></TickStatusComp>
+    {/* <BallClassComp></BallClassComp> */}
+    <BallListComp></BallListComp>
   </React.StrictMode>
 );
 
