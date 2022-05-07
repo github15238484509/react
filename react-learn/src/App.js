@@ -1,22 +1,41 @@
 import React from 'react'
-import ThreeLayout from './component/common/ThreeLayout'
-export default function App() {
-    return (
-        <div>
-            <ThreeLayout
-                left="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla nemo veritatis nesciunt natus voluptates. Incidunt iusto rem fugiat consectetur consequatur? Rerum delectus, dolorem neque maxime ut optio adipisci quidem consequuntur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla nemo veritatis nesciunt natus voluptates. Incidunt iusto rem fugiat consectetur consequatur? Rerum delectus, dolorem neque maxime ut optio adipisci quidem consequuntur."
-                right="663"
-            >
-
-                <h1>这是住区域</h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla nemo veritatis nesciunt natus voluptates. Incidunt iusto rem fugiat consectetur consequatur? Rerum delectus, dolorem neque maxime ut optio adipisci quidem consequuntur.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla nemo veritatis nesciunt natus voluptates. Incidunt iusto rem fugiat consectetur consequatur? Rerum delectus, dolorem neque maxime ut optio adipisci quidem consequuntur.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla nemo veritatis nesciunt natus voluptates. Incidunt iusto rem fugiat consectetur consequatur? Rerum delectus, dolorem neque maxime ut optio adipisci quidem consequuntur.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla nemo veritatis nesciunt natus voluptates. Incidunt iusto rem fugiat consectetur consequatur? Rerum delectus, dolorem neque maxime ut optio adipisci quidem consequuntur.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla nemo veritatis nesciunt natus voluptates. Incidunt iusto rem fugiat consectetur consequatur? Rerum delectus, dolorem neque maxime ut optio adipisci quidem consequuntur.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla nemo veritatis nesciunt natus voluptates. Incidunt iusto rem fugiat consectetur consequatur? Rerum delectus, dolorem neque maxime ut optio adipisci quidem consequuntur.
-                <p></p>
-            </ThreeLayout>
-        </div>
-    )
+// import ThreeLayout from './component/common/ThreeLayout'
+import MyInput from './component/common/MyInput'
+import MyCheckbox from './component/common/MyCheckbox'
+import MyRadio from './component/common/MyRadio'
+export default class App extends React.Component {
+    state = {
+        input: 132,//
+        arrlist: [{
+            id: 1,
+            text: '苹果'
+        }, {
+            id: 2,
+            text: '西瓜'
+        }, {
+            id: 3,
+            text: '香蕉'
+        }, {
+            id: 4,
+            text: '哈密瓜'
+        }],
+        selectList: [1, 3],
+        radioVlue: 1
+    }
+    setChange = (value, name) => {
+        console.log(value, name);
+        console.log(value, name);
+        this.setState({
+            [name]: value
+        })
+    }
+    render() {
+        return (
+            <div>
+                <MyRadio name="radioVlue" value={this.state.radioVlue} listArr={this.state.arrlist} onChange={this.setChange}></MyRadio>
+                <MyCheckbox name="selectList" selectList={this.state.selectList} listArr={this.state.arrlist} onChange={this.setChange}></MyCheckbox>
+                <MyInput value={this.state.input} name="input" onChange={this.setChange}></MyInput>
+            </div >
+        )
+    }
 }
