@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
-
+import PropTypes from "prop-types"
 
 export default class MyInput extends Component {
+    static defaultProps = {
+        value:''
+    }
+    static propTypes = {
+        name:PropTypes.string.isRequired,
+        value:PropTypes.string,
+        onChange:PropTypes.func
+    }
     render() {
-        console.log(this.props);
         return (
             <input name={this.props.name} value={this.props.value} onChange={
                 (e) => {

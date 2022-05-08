@@ -3,24 +3,25 @@ import React from 'react'
 import MyInput from './component/common/MyInput'
 import MyCheckbox from './component/common/MyCheckbox'
 import MyRadio from './component/common/MyRadio'
+import Module from './component/common/Module'
 export default class App extends React.Component {
     state = {
-        input: 132,//
+        input: "132",//
         arrlist: [{
-            id: 1,
+            id: "1",
             text: '苹果'
         }, {
-            id: 2,
+            id: "2",
             text: '西瓜'
         }, {
-            id: 3,
+            id: "3",
             text: '香蕉'
         }, {
-            id: 4,
+            id: "4",
             text: '哈密瓜'
         }],
-        selectList: [1, 3],
-        radioVlue: 1
+        selectList: ["1", "3"],
+        radioVlue:"1"
     }
     setChange = (value, name) => {
         console.log(value, name);
@@ -32,6 +33,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div>
+                <Module></Module>
                 <MyRadio name="radioVlue" value={this.state.radioVlue} listArr={this.state.arrlist} onChange={this.setChange}></MyRadio>
                 <MyCheckbox name="selectList" selectList={this.state.selectList} listArr={this.state.arrlist} onChange={this.setChange}></MyCheckbox>
                 <MyInput value={this.state.input} name="input" onChange={this.setChange}></MyInput>

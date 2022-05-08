@@ -1,6 +1,20 @@
 import React, { Component } from 'react'
+import PropTypes from "prop-types"
 export default class MyRadio extends Component {
-
+    static defaultProps = {
+        listArr: [],
+        selectList: [],
+        value: ''
+    }
+    static propTypes = {
+        listArr: PropTypes.arrayOf(PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            text: PropTypes.string.isRequired,
+        })),
+        value: PropTypes.string,
+        name: PropTypes.string.isRequired,
+        onChange: PropTypes.func
+    }
     render() {
         let list = this.props.listArr.map((it) => {
             return (
