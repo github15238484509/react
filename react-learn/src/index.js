@@ -1,29 +1,51 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import src1 from "./assets/1.gif";
-import src2 from "./assets/2.webp";
-import src3 from "./assets/3.webp";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-let arr = [src1, src2, src3];
-let index = 0
-function start() {
-  setInterval(() => {
-    index = (index + 1) % 3
-    render()
-  }, 1000)
+class A extends React.Component {
+  handle() {
+    console.log("ahaha");
+  }
+  render() {
+    return (
+      <input></input>
+    )
+  }
 }
-function render() {
-  let img = <img src={arr[index]}></img>
-  root.render(
-    <React.StrictMode>
-      {img}
-    </React.StrictMode>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.handle = this.handle.bind(this)
+    this.tt = React.createRef()
+    this.txt = React.createRef()
+  }
+  handle = function () {
+    console.log(this.tt);
+    console.log(this.tt.current.handle());
+
+    this.txt.current.focus()
+  }
+  render() {
+    return (
+      <>
+        <A ref={this.tt}></A>
+        <input ref={this.txt}>
+        </input>
+        <button onClick={this.handle}> 点击聚焦</button></>
+    )
+  }
 }
-start()
+
+
+root.render(
+  <React.StrictMode>
+    <App></App>
+  </React.StrictMode>
+);
+
 
 
 
