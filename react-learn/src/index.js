@@ -1,25 +1,17 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import PropTypes from 'prop-types'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+
+let textA = React.createContext()
+let textB = React.createContext()
+
+
 class A extends React.Component {
   state = {
-    a: '我是a的内容'
-  }
-  constructor(props) {
-    super(props)
-    console.log("...");
-  }
-  static childContextTypes = {
-    a:PropTypes.string
-  }
-  getChildContext=()=>{
-    return {
-      a:"87465"
-    }
+    a: '我a的内容'
   }
   change = () => {
     this.setState({
@@ -27,39 +19,68 @@ class A extends React.Component {
     })
   }
   render() {
+    let Provider = textA.Provider
     return (
       <>
         <h2>A</h2>
-        <B></B>
+        <button onClick={this.change}>改变a的数据</button>
+        <Provider value={{
+          a: this.state.a
+        }}>
+          <B></B>
+        </Provider>
       </>
     )
   }
 }
 
 class B extends React.Component {
-  static contextType = {
-    a: PropTypes.string
+  state = {
+    b: '我是b的内容'
   }
-  constructor(props, context) {
-    super(props)
-    console.log(context);
+  change = () => {
+    this.setState({
+      b: `我是b的内容我变心了${Math.random()}`
+    })
   }
   render() {
-    console.log(this);
     return (
-      <>
-        <h2>B:{this.context.a}</h2>
-        <C></C>
-      </>
+      <textB.Provider value={{
+        b: this.state.b
+      }}>
+        <textA.Consumer>
+          {
+            (value) => (
+              <>
+                <h2>B:{value.a}</h2>
+                <C></C>
+                <button onClick={this.change}>改变b的数据</button>
+              </>
+            )
+          }
+        </textA.Consumer>
+      </textB.Provider>
     )
   }
 }
 
 class C extends React.Component {
   render() {
-
     return (
-      <h2>C</h2>
+      <textB.Consumer>
+        {valueb => (
+          <textA.Consumer>
+            {
+              (value) => (
+                <>
+                  <h2>C:{value.a}</h2>
+                  <h2>C:{valueb.b}</h2>
+                </>
+              )
+            }
+          </textA.Consumer>
+        )}
+      </textB.Consumer>
     )
   }
 }
