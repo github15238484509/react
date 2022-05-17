@@ -1,14 +1,39 @@
-.my-node-enter {
+.container {
+    position: relative;
+    width: 100px;
+    height: 200px;
+    margin: 100px auto;
+    border: 1px solid red;
+}
+
+.title {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+.exit-active {
     opacity: 0;
-  }
-  .my-node-enter-active {
-    opacity: 1;
-    transition: opacity 200ms;
-  }
-  .my-node-exit {
-    opacity: 1;
-  }
-  .my-node-exit-active {
+    transform: scale(0.98);
+    transition: all 0.3s;
+}
+
+.exit-done {
+    display: none;
+}
+
+
+
+.enter,
+.appear {
     opacity: 0;
-    transition: opacity 200ms;
-  }
+    transform: scale(1.2);
+}
+
+.enter-active,
+.appear-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 1s;
+}
