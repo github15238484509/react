@@ -1,38 +1,29 @@
 import React from "react";
-import {
-    BrowserRouter,
-    Route,
-    Routes,
-    Outlet,
-    Link
-} from "react-router-dom";
+import "./app.css"
+
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Login from "./page/Login";
+import Admin from "./page/Admin";
 
 
-function CompA() {
-    return (
-        <>
-            <h2>CompA</h2>
-            <Link to={"expenses"}>expenses</Link>
-            <Outlet />
-        </>
-    );
-}
-function CompB() {
-    return <h2>CompB</h2>;
-}
-function CompC() {
-    return <h2>CompC</h2>;
-}
+import Course from './page/Admin/Course';
+import CourseAdd from './page/Admin/CourseAdd';
+import Student from './page/Admin/Student';
+import StudentAdd from './page/Admin/StudentAdd';
+import My404 from './page/404';
 export default function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/a" element={<CompA />} >
-                    <Route path="expenses" element={<CompC />} >
-                    </Route>
+                <Route path="/login" element={<Login></Login>}></Route>
+                <Route path="/" element={<Admin></Admin>}>
+                    <Route path='' element={<Course />} ></Route>
+                    <Route path='Course' element={<Course></Course>} ></Route>
+                    <Route path='CourseAdd' element={<CourseAdd></CourseAdd>}  ></Route>
+                    <Route path='Student' element={<Student></Student>}  ></Route>
+                    <Route path='StudentAdd' element={<StudentAdd></StudentAdd>} ></Route>
                 </Route>
-                <Route path="/a/b" element={<CompB />} >
-                </Route>
+                <Route path="*" element={<My404></My404>}></Route>
             </Routes>
         </BrowserRouter>
     );
