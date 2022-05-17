@@ -1,55 +1,40 @@
-import React, { useState } from 'react'
-import { Transition, CSSTransition, TransitionGroup } from "react-transition-group"
-import "./app.css"
+import React from "react";
+import {
+    BrowserRouter,
+    Route,
+    Routes,
+    Outlet,
+    Link
+} from "react-router-dom";
 
 
-
-
-export default function App() {
-    const [list, setlist] = useState([{
-        name: 1,
-        id: 1
-    }, {
-        name: 2,
-        id: 2
-    }, {
-        name: 3,
-        id: 3
-    }])
+function CompA() {
     return (
-        <div>
-            <div className='container'>
-                <TransitionGroup appear >
-                    {
-                        list.map((it) => {
-                            return (
-                                <CSSTransition timeout={1000} key={it.id}>
-                                    <h2 onClick={
-                                        ()=>{
-                                            setlist(
-                                                list.filter((i) => {
-                                                    return i.id !== it.id
-                                                })
-                                            )
-                                        }
-                                    }>{it.name}</h2>
-                                </CSSTransition>
-                            )
-                        })
-                    }
-                </TransitionGroup>
-            </div>
-            <button type="button" onClick={() => {
-                setlist(
-                    [...list, {
-                        name: list.length + 1,
-                        id: list.length + 1
-                    }]
-                )
-            }
-            }>
-                添加
-            </button>
-        </div>
+        <>
+            <h2>CompA</h2>
+            <Link to={"expenses"}>expenses</Link>
+            <Outlet />
+        </>
     );
 }
+function CompB() {
+    return <h2>CompB</h2>;
+}
+function CompC() {
+    return <h2>CompC</h2>;
+}
+export default function App() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/a" element={<CompA />} >
+                    <Route path="expenses" element={<CompC />} >
+                    </Route>
+                </Route>
+                <Route path="/a/b" element={<CompB />} >
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
+}
+
