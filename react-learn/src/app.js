@@ -1,30 +1,54 @@
 import React, { useState } from 'react'
-import { Transition, CSSTransition } from "react-transition-group"
+import { Transition, CSSTransition, TransitionGroup } from "react-transition-group"
 import "./app.css"
 
 
-function Comp1({ visibility }) {
-    return <CSSTransition appear mountOnEnter in={visibility} timeout={1000}>
-        <h1 className='title'>Comp1</h1>
-    </CSSTransition>
-}
-function Comp2({ visibility }) {
-    return <CSSTransition appear mountOnEnter in={visibility} timeout={1000}>
-        <h1 className='title'>Comp2</h1>
-    </CSSTransition>
-}
+
 
 export default function App() {
-    const [visibility, setVisibility] = useState(true);
-
+    const [list, setlist] = useState([{
+        name: 1,
+        id: 1
+    }, {
+        name: 2,
+        id: 2
+    }, {
+        name: 3,
+        id: 3
+    }])
     return (
         <div>
             <div className='container'>
-                <Comp1 visibility={visibility}></Comp1>
-                <Comp2 visibility={!visibility}></Comp2>
+                <TransitionGroup appear >
+                    {
+                        list.map((it) => {
+                            return (
+                                <CSSTransition timeout={1000} key={it.id}>
+                                    <h2 onClick={
+                                        ()=>{
+                                            setlist(
+                                                list.filter((i) => {
+                                                    return i.id !== it.id
+                                                })
+                                            )
+                                        }
+                                    }>{it.name}</h2>
+                                </CSSTransition>
+                            )
+                        })
+                    }
+                </TransitionGroup>
             </div>
-            <button type="button" onClick={() => setVisibility(!visibility)}>
-                toggle
+            <button type="button" onClick={() => {
+                setlist(
+                    [...list, {
+                        name: list.length + 1,
+                        id: list.length + 1
+                    }]
+                )
+            }
+            }>
+                添加
             </button>
         </div>
     );
