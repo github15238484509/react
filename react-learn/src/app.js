@@ -18,7 +18,10 @@ export default function App() {
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/" element={<Admin></Admin>}>
                     <Route path='' element={<Course />} ></Route>
-                    <Route path='Course' element={<Course></Course>} ></Route>
+                    <Route path='Course' element={<Course></Course>} >
+                        <Route path=':id' element={<Course></Course>} ></Route>
+                        <Route path=':year/:month/day' element={<Course></Course>} ></Route>
+                    </Route>
                     <Route path='CourseAdd' element={<CourseAdd></CourseAdd>}  ></Route>
                     <Route path='Student' element={<Student></Student>}  ></Route>
                     <Route path='StudentAdd' element={<StudentAdd></StudentAdd>} ></Route>
