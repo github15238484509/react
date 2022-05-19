@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   cra-template: 1.2.0
   prop-types: ^15.8.1
+  query-string: ^7.1.1
   react: ^18.1.0
   react-dom: ^18.1.0
   react-router-dom: ^6.3.0
@@ -12,6 +13,7 @@ specifiers:
 dependencies:
   cra-template: registry.npmmirror.com/cra-template/1.2.0
   prop-types: registry.npmmirror.com/prop-types/15.8.1
+  query-string: registry.npmmirror.com/query-string/7.1.1
   react: registry.npmmirror.com/react/18.1.0
   react-dom: registry.npmmirror.com/react-dom/18.1.0_react@18.1.0
   react-router-dom: registry.npmmirror.com/react-router-dom/6.3.0_react-dom@18.1.0+react@18.1.0
@@ -4720,6 +4722,13 @@ packages:
     version: 10.3.1
     dev: false
 
+  registry.npmmirror.com/decode-uri-component/0.2.0:
+    resolution: {integrity: sha512-hjf+xovcEn31w/EUYdTXQh/8smFL/dzYjohQGEIgjyNavaJfBY2p5F527Bo1VPATxv0VYTUC2bOcXvqFwk78Og==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz}
+    name: decode-uri-component
+    version: 0.2.0
+    engines: {node: '>=0.10'}
+    dev: false
+
   registry.npmmirror.com/dedent/0.7.0:
     resolution: {integrity: sha512-Q6fKUPqnAHAyhiUgFU7BUzLiv0kd8saH9al7tnu5Q/okj6dnupxyTgFIBjVzJATdfIAm9NAsvXNzjaKa+bxVyA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/dedent/-/dedent-0.7.0.tgz}
     name: dedent
@@ -5775,6 +5784,13 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       to-regex-range: registry.npmmirror.com/to-regex-range/5.0.1
+    dev: false
+
+  registry.npmmirror.com/filter-obj/1.1.0:
+    resolution: {integrity: sha512-8rXg1ZnX7xzy2NGDVkBVaAy+lSlPNwad13BtgSlLuxfIslyt5Vg64U7tFcCt4WS1R0hvtnQybT/IyCkGZ3DpXQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/filter-obj/-/filter-obj-1.1.0.tgz}
+    name: filter-obj
+    version: 1.1.0
+    engines: {node: '>=0.10.0'}
     dev: false
 
   registry.npmmirror.com/finalhandler/1.2.0:
@@ -9649,6 +9665,18 @@ packages:
       side-channel: registry.npmmirror.com/side-channel/1.0.4
     dev: false
 
+  registry.npmmirror.com/query-string/7.1.1:
+    resolution: {integrity: sha512-MplouLRDHBZSG9z7fpuAAcI7aAYjDLhtsiVZsevsfaHWDS2IDdORKbSd1kWUA+V4zyva/HZoSfpwnYMMQDhb0w==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/query-string/-/query-string-7.1.1.tgz}
+    name: query-string
+    version: 7.1.1
+    engines: {node: '>=6'}
+    dependencies:
+      decode-uri-component: registry.npmmirror.com/decode-uri-component/0.2.0
+      filter-obj: registry.npmmirror.com/filter-obj/1.1.0
+      split-on-first: registry.npmmirror.com/split-on-first/1.1.0
+      strict-uri-encode: registry.npmmirror.com/strict-uri-encode/2.0.0
+    dev: false
+
   registry.npmmirror.com/queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/queue-microtask/-/queue-microtask-1.2.3.tgz}
     name: queue-microtask
@@ -10631,6 +10659,13 @@ packages:
       - supports-color
     dev: false
 
+  registry.npmmirror.com/split-on-first/1.1.0:
+    resolution: {integrity: sha512-43ZssAJaMusuKWL8sKUBQXHWOpq8d6CfN/u1p4gUzfJkM05C8rxTmYrkIPTXapZpORA6LkkzcUulJ8FqA7Uudw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/split-on-first/-/split-on-first-1.1.0.tgz}
+    name: split-on-first
+    version: 1.1.0
+    engines: {node: '>=6'}
+    dev: false
+
   registry.npmmirror.com/sprintf-js/1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/sprintf-js/-/sprintf-js-1.0.3.tgz}
     name: sprintf-js
@@ -10670,6 +10705,13 @@ packages:
     name: statuses
     version: 2.0.1
     engines: {node: '>= 0.8'}
+    dev: false
+
+  registry.npmmirror.com/strict-uri-encode/2.0.0:
+    resolution: {integrity: sha512-QwiXZgpRcKkhTj2Scnn++4PKtWsH0kpzZ62L2R6c/LUVYv7hVnZqcg2+sMuT6R7Jusu1vviK/MFsu6kNJfWlEQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/strict-uri-encode/-/strict-uri-encode-2.0.0.tgz}
+    name: strict-uri-encode
+    version: 2.0.0
+    engines: {node: '>=4'}
     dev: false
 
   registry.npmmirror.com/string-length/4.0.2:

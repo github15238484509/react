@@ -3,9 +3,7 @@ import React, { useEffect } from 'react'
 import "./index.css"
 
 export default function MyHeader() {
-    useEffect(() => {
-        console.log('MyHeader');
-    })
+   
     return (
         <div className='my-header'>
             <h1>这是网站logo</h1>

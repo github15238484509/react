@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes  from "prop-types"
 import "./index.css"
 export default function Layout(props) {
-    console.log(props);
     return (
         <div className='layout-container'>
             <header className='layout-header'>

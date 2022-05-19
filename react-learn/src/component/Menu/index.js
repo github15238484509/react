@@ -2,9 +2,6 @@ import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import "./index.css"
 export default function MyMenu() {
-    useEffect(() => {
-        console.log(5656);
-    })
     return (
         <nav className='my-menu'>
             <NavLink to={`/`} className="my-time">  欢迎页  </NavLink>
