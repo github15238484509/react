@@ -1,26 +1,15 @@
 
 import { createStore, bindActionCreators } from "redux"
-import * as actionTypes from "./action/action-types"
-import * as actionDispatch from "./action/action-dispatch"
-function reducer(state, action) {
-    if (action.type === actionTypes.INCREASE) {
-        return state + 1
-    } else if (action.type === actionTypes.DECREASE) {
-        return state - 1
-    }
-    return state
-}
-let store = createStore(reducer, 10)
-store.subscribe(() => {
-    console.log('store改变了');
-})
+import reducer from "./reducer"
+import action from "./action/index"
+let store = createStore(reducer)
 console.log(store.getState());
-
-let dispatch = bindActionCreators(actionDispatch, store.dispatch)
-console.log(dispatch, actionDispatch);
-dispatch.getIncrease()
-// store.dispatch({
-//     type: actionTypes.INCREASE
-// })
+let dispatch = bindActionCreators(action, store.dispatch)
+console.log(dispatch);
+dispatch.increaseAction()
+dispatch.addUserAction({ name: 132, id: 1 })
+dispatch.addUserAction({ name: 456, id: 2 })
+dispatch.setAction(56)
+dispatch.updateUserAction({ id: 1, name: '改变后的用户名字' })
 console.log(store.getState());
 console.log(store);
