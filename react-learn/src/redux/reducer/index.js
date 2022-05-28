@@ -8,7 +8,25 @@ import { combineReducers } from "redux"
 //     }
 //     return newState
 // }
-export default combineReducers({
+// export default combineReducers({
+//     num: numReducer,
+//     user: userReducer
+// })
+export default myCombineReducers({
     num: numReducer,
     user: userReducer
 })
+
+function myCombineReducers(reducers) {
+    return (state = {}, action) => {
+        let result = {}
+        for (const key in reducers) {
+            if (Object.hasOwnProperty.call(reducers, key)) {
+                let fu = reducers[key]
+                result[key] = fu(state[key], action)
+            }
+        }
+        return result
+    }
+}
+
