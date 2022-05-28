@@ -39,3 +39,31 @@ export function bindActionCreators(action, dispatch) {
     }
     return result
 }
+
+
+export function myMiddleware(...func) {
+    return (createStore) => {
+        return (reducer) => {
+            let store = createStore(reducer)
+            let dispatch = () => {
+                throw new TypeError("去死")
+            }
+            func = func.map(it => it(store))
+            dispatch = compose(...func)(store.dispatch)
+            return {
+                ...store,
+                dispatch
+            }
+        }
+    }
+}
+
+function compose(...arg) {
+    return (va) => {
+        let value = va
+        for (let i = arg.length - 1; i >= 0; i--) {
+            value = arg[i](value)
+        }
+        return value
+    }
+}

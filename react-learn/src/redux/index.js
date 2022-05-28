@@ -1,9 +1,37 @@
 
 // import { createStore, bindActionCreators } from "redux"
-import { createStore, bindActionCreators } from "./redux"
+import { createStore, bindActionCreators, myMiddleware } from "./redux"
 import reducer from "./reducer"
 import action from "./action/index"
-let store = createStore(reducer)
+// let store = createStore(reducer)
+function fun1(store) {
+    return (dispatch) => {
+        return (action) => {
+            console.log("fun1");
+            dispatch(action)
+        }
+    }
+}
+function fun2(store) {
+    return (dispatch) => {
+        return (action) => {
+            console.log("fun2");
+            dispatch(action)
+        }
+    }
+}
+// let store = createStore(reducer, applyMiddleware(fun1, fun2))
+let store = myMiddleware(fun1, fun2)(createStore)(reducer)
+
+// //增强dispatch
+// let oldDispatch = store.dispatch
+// store.dispatch = (...arg) => {
+//     console.log('旧的store:', store.getState());
+//     oldDispatch(...arg)
+//     console.log('新的store:', store.getState());
+//     console.log("");
+// }
+
 console.log(store);
 console.log(store.getState());
 let dispatch = bindActionCreators(action, store.dispatch)
