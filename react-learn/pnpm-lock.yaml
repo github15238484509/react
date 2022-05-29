@@ -10,6 +10,8 @@ specifiers:
   react-scripts: 5.0.1
   react-transition-group: ^4.4.2
   redux: ^4.2.0
+  redux-logger: ^3.0.6
+  redux-thunk: ^2.4.1
 
 dependencies:
   cra-template: registry.npmmirror.com/cra-template/1.2.0
@@ -21,6 +23,8 @@ dependencies:
   react-scripts: registry.npmmirror.com/react-scripts/5.0.1_react@18.1.0
   react-transition-group: registry.npmmirror.com/react-transition-group/4.4.2_react-dom@18.1.0+react@18.1.0
   redux: registry.npmmirror.com/redux/4.2.0
+  redux-logger: registry.npmmirror.com/redux-logger/3.0.6
+  redux-thunk: registry.npmmirror.com/redux-thunk/2.4.1_redux@4.2.0
 
 packages:
 
@@ -4735,6 +4739,12 @@ packages:
     resolution: {integrity: sha512-Q6fKUPqnAHAyhiUgFU7BUzLiv0kd8saH9al7tnu5Q/okj6dnupxyTgFIBjVzJATdfIAm9NAsvXNzjaKa+bxVyA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/dedent/-/dedent-0.7.0.tgz}
     name: dedent
     version: 0.7.0
+    dev: false
+
+  registry.npmmirror.com/deep-diff/0.3.8:
+    resolution: {integrity: sha512-yVn6RZmHiGnxRKR9sJb3iVV2XTF1Ghh2DiWRZ3dMnGc43yUdWWF/kX6lQyk3+P84iprfWKU/8zFTrlkvtFm1ug==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/deep-diff/-/deep-diff-0.3.8.tgz}
+    name: deep-diff
+    version: 0.3.8
     dev: false
 
   registry.npmmirror.com/deep-is/0.1.4:
@@ -10013,6 +10023,25 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       minimatch: registry.npmmirror.com/minimatch/3.0.4
+    dev: false
+
+  registry.npmmirror.com/redux-logger/3.0.6:
+    resolution: {integrity: sha512-JoCIok7bg/XpqA1JqCqXFypuqBbQzGQySrhFzewB7ThcnysTO30l4VCst86AuB9T9tuT03MAA56Jw2PNhRSNCg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/redux-logger/-/redux-logger-3.0.6.tgz}
+    name: redux-logger
+    version: 3.0.6
+    dependencies:
+      deep-diff: registry.npmmirror.com/deep-diff/0.3.8
+    dev: false
+
+  registry.npmmirror.com/redux-thunk/2.4.1_redux@4.2.0:
+    resolution: {integrity: sha512-OOYGNY5Jy2TWvTL1KgAlVy6dcx3siPJ1wTq741EPyUKfn6W6nChdICjZwCd0p8AZBs5kWpZlbkXW2nE/zjUa+Q==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/redux-thunk/-/redux-thunk-2.4.1.tgz}
+    id: registry.npmmirror.com/redux-thunk/2.4.1
+    name: redux-thunk
+    version: 2.4.1
+    peerDependencies:
+      redux: ^4
+    dependencies:
+      redux: registry.npmmirror.com/redux/4.2.0
     dev: false
 
   registry.npmmirror.com/redux/4.2.0:

@@ -17,6 +17,14 @@ export function setAction(num) {
         payload: num
     }
 }
+export function setMyAction() {
+    return (dispatch) => {
+        setTimeout(() => {
+            let num = Math.random()
+            dispatch(setAction(num))
+        }, 1000);
+    }
+}
 
 
 const numAction = {
