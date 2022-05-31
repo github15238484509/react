@@ -13,7 +13,7 @@ import StudentAdd from './page/Admin/StudentAdd';
 import My404 from './page/404';
 import Persion from "./page/Admin/Person";
 import Welcome from "./page/Welcome";
-
+import StorePage from "./page/Admin/StorePage";
 
 const Login = lazy(() => import("./page/Login"))
 export default function App() {
@@ -29,6 +29,7 @@ export default function App() {
                         <Route path='Student' element={<Student></Student>}  ></Route>
                         <Route path='StudentAdd' element={<StudentAdd></StudentAdd>} ></Route>
                         <Route path='persion' element={<Persion></Persion>} ></Route>
+                        <Route path='store' element={<StorePage></StorePage>} ></Route>
                     </Route>
                     <Route path="*" element={<My404></My404>}></Route>
                 </Routes>

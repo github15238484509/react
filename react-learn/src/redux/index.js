@@ -1,6 +1,6 @@
 
-// import { createStore, bindActionCreators, applyMiddleware } from "redux"
-import { createStore, bindActionCreators, myMiddleware } from "./redux"
+import { createStore, bindActionCreators, applyMiddleware } from "redux"
+// import { createStore, bindActionCreators, myMiddleware } from "./redux"
 import reducer from "./reducer"
 import action from "./action/index"
 import logger from "redux-logger"
@@ -36,8 +36,9 @@ function fun2(store) {
         }
     }
 }
-// let store = createStore(reducer, applyMiddleware(thunk, fun1, fun2, logger))
-let store = myMiddleware(thunk, fun1, fun2, logger)(createStore)(reducer)
+let store = createStore(reducer, applyMiddleware(thunk, fun1, fun2, logger))
+export default store
+// let store = myMiddleware(thunk, fun1, fun2, logger)(createStore)(reducer)
 
 // //增强dispatch
 // let oldDispatch = store.dispatch

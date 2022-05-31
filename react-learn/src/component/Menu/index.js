@@ -10,6 +10,7 @@ export default function MyMenu() {
             <NavLink to={`/Student`} className="my-time"> 学生列表  </NavLink>
             <NavLink to={`/StudentAdd`} className="my-time">  添加学生  </NavLink>
             <NavLink to={`/persion`} className="my-time">  个人中心  </NavLink>
+            <NavLink to={`/store`} className="my-time">  store中的数据  </NavLink>
         </nav>
     )
 }
