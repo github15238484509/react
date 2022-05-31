@@ -20,7 +20,7 @@ export function setAction(num) {
 export function setMyAction() {
     return (dispatch) => {
         setTimeout(() => {
-            let num = Math.random()
+            let num = Math.floor(Math.random()*100)
             dispatch(setAction(num))
         }, 1000);
     }

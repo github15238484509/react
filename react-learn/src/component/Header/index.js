@@ -2,12 +2,11 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import "./index.css"
-
-export default function MyHeader() {
-   
+function MyHeader() {
+    console.log("异步加载login");
     return (
         <div className='my-header'>
-            <h1><Link to={"/login"}>这是网站logo</Link></h1>
+            <h1><Link to={"/login"}>异步加载login</Link></h1>
 
             <div>
                 <span>用户姓名</span>
@@ -16,3 +15,5 @@ export default function MyHeader() {
         </div>
     )
 }
+
+export default React.memo(MyHeader)
