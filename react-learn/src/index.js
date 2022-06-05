@@ -1,17 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './app';
-import store from "./redux"
-import { Provider } from "react-redux"
+import dva from "dva"
+import App from "./countApp"
+import count from './countApp/count';
+const app = dva()
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App></App>
-    </Provider>
-  </React.StrictMode>
-);
+app.model(count)
 
+app.router(() => <App></App>)
+app.start("#root")
+
+console.log(app);
 
 
