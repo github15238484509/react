@@ -1,0 +1,21 @@
+.headerbox {
+    height: 50px;
+    line-height: 50px;
+    background-color: black;
+    color: white;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+.logo {
+    float: left;
+
+}
+
+.user {
+    float: right;
+}
+
+button {
+    margin-left: 10px;
+}
